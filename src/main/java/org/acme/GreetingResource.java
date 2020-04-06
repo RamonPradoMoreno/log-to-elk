@@ -23,7 +23,9 @@ public class GreetingResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
         LOG.debug("Request recieved");
-        LOG.info("Sending 'hello' response");
+        LOG.info("ALL | Sending 'hello' response to everyone.");
+        LOG.info("ELK | Sending 'hello' response to ELK.");
+        LOG.info("NAG | Sending 'hello' response to nagios.");
         return "hello";
     }
 }
