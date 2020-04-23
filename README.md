@@ -15,8 +15,30 @@ With each get to the microservice, it gathers metrics and sends a `DEBUG` and an
 This microservice has been uploaded to [hub.docker.com](https://hub.docker.com/u/rpardom). It can be pulled as a docker image with:
 
 ```bash
-docker pull rpardom/log-to-elk-microservice
+docker pull rpardom/log-to-elk-microservice:native
 ```
+
+See a use example [here](https://github.com/RamonPradoMoreno/elk-docker-playground/blob/master/docker-compose.yaml).
+
+You may want to push it to your own repo (remember you will need to create the native executable first):
+
+1. Build the image:
+
+   ```
+   docker build -f src/main/docker/Dockerfile.native -t log-to-elk-microservice:native .
+   ```
+
+2. Retag the image with your repo prefix:
+
+   ```
+   docker tag log-to-elk-microservice:native rpardom/log-to-elk-microservice:native
+   ```
+
+3. Push it to the repo:
+
+   ```
+   docker push rpardom/log-to-elk-microservice:native
+   ```
 
 ## Quarkus
 
